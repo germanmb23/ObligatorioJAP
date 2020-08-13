@@ -68,14 +68,16 @@
   
       <!-- Icon -->
       <div class="first">
-        <img src="https://stafforgserv.com.au/wp-content/uploads/2018/09/user-img.png" id="portada" alt="User Icon" />
+        <div style="height: 80px; padding-top: 10px">
+        <img src="https://stafforgserv.com.au/wp-content/uploads/2018/09/user-img.png" id="icon" alt="User Icon" />
+      </div>
       </div>
   
       <!-- Login Form -->
-      <form>
+      <form action="/home.html">
         <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-        <input type="button" id="buttonLogin" value="Log In">
+        <input type="button" id="buttonLogin" value="Log In" onclick="window.location = 'home.html'">
       </form>
   
   
