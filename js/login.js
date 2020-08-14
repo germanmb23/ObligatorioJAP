@@ -9,26 +9,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let pass;
 
         if(imputEmail.value === ""){
-            imputEmail.style.border = "2px solid red"
-            imputEmail.style.borderRadius = "border-radius: 4px";
+            imputEmail.classList.add("invalid")
             email = false;
         }
         else{
-            imputEmail.style.border = ""
-            imputEmail.style.borderRadius = "";
+            imputEmail.classList.remove("invalid")
             email = true;
         } 
 
         if(imputPassword.value === ""){
-            imputPassword.style.border = "2px solid red"
-            imputPassword.style.borderRadius = "border-radius: 4px";
-            datosCompletos = false;
+            imputPassword.classList.add("invalid")
+            pass = false;
         }
         else{
-            imputPassword.style.border = ""
-            imputPassword.style.borderRadius = "";
+            imputPassword.classList.remove("invalid");
             pass = true;
-
         }
 
         if(email && pass){

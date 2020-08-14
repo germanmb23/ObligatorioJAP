@@ -14,7 +14,9 @@
 
 /* BASIC */
 
-#divIcon{
+
+
+#divIcon {
   height: 80px;
   padding-top: 10px
 }
@@ -140,7 +142,7 @@
     transform: scale(0.95);
   }
   
-  input[type=text] {
+  .inputText{
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -286,3 +288,8 @@
       outline: none;
   } 
   
+  .invalid {
+    border-radius: 4px;
+    border: 2px solid red;
+    background-color: rgba(214, 139, 139, 0.541);
+  }
