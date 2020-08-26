@@ -7,6 +7,7 @@ var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var search = undefined;
 
 function sortCategories(criteria, array) {
     let result = [];
@@ -56,14 +57,14 @@ function sortCategories(criteria, array) {
     return result;
 }
 
-function showCategoriesList() {
+function showProductsList() {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < currentCategoriesArray.length; i++) {
         let product = currentCategoriesArray[i];
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) && ((search == undefined) || (search != undefined && product.name.toLowerCase().indexOf(search) != -1))) {
 
             htmlContentToAppend += `
                 <a  class="list-group-item list-group-item-action" style="margin-left: auto; margin-right: auto; position: relative;">
@@ -99,7 +100,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
     currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
 
     //Muestro las categorías ordenadas
-    showCategoriesList();
+    showProductsList();
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -136,11 +137,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("clearRangeFilter").addEventListener("click", function() {
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
+        document.getElementById("searchBar").value = "";
+
 
         minCount = undefined;
         maxCount = undefined;
-
-        showCategoriesList();
+        search = undefined;
+        showProductsList();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function() {
@@ -161,6 +164,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
             maxCount = undefined;
         }
 
-        showCategoriesList();
+        showProductsList();
     });
 });
+
+document.getElementById("searchBar").addEventListener("input", function() {
+    search = document.getElementById("searchBar").value.toLowerCase();
+    showProductsList();
+});
+
