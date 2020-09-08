@@ -67,7 +67,7 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) && ((search == undefined) || (search != undefined && product.name.toLowerCase().indexOf(search) != -1))) {
 
             htmlContentToAppend += `
-                <a  class="list-group-item list-group-item-action" style="margin-left: auto; margin-right: auto; position: relative;">
+                <a  class="list-group-item list-group-item-action" onClick="setProductId(` + i + `)" style="margin-left: auto; margin-right: auto; position: relative;">
                     <div class="row">
                         <div class="col-3">
                             <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -173,3 +173,8 @@ document.getElementById("searchBar").addEventListener("input", function() {
     showProductsList();
 });
 
+function setProductId(id) {
+    storage = window.localStorage;
+    storage.setItem("idSelected", JSON.stringify({ selectedProductId: id }));
+    window.location = "product-info.html"
+}
