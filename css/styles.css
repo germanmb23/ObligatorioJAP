@@ -287,3 +287,31 @@ a.custom-card:hover {
 .post .post-footer .comments-list .comment>.comments-list {
     margin-left: 50px;
 }
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    padding: 0px
+}
+
+.star-rating input[type=radio] {
+    display: none
+}
+
+.star-rating label {
+    color: rgb(133, 142, 192);
+    font-size: 20px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input[type=radio]:checked~label {
+    color: #ffbf00
+}
+
+p#selPuntuacion {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}

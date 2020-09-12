@@ -80,23 +80,40 @@
         <div class="row justify-content-center">
             <form action="#">
                 <textarea cols="70" rows="5" placeholder="Escribir "></textarea>
-                <p>Seleccionar puntuacion:</p>
-                <input type="radio" id="1" name="score" value="1">
-                <label for="1">1</label>
-                <input type="radio" id="female" name="score" value="2">
-                <label for="2">2</label>
-                <input type="radio" id="other" name="score" value="3">
-                <label for="3">3</label>
-                <input type="radio" id="other" name="score" value="3">
-                <label for="4">4</label>
-                <input type="radio" id="other" name="score" value="3">
-                <label for="5">5</label>
+                <p id="selPuntuacion" style="margin-top: 5px;
+                    margin-bottom: 5px;">Seleccionar puntuacion:</p>
+                <div class="star-rating">
+                    <input id="star-5" type="radio" name="rating" value="5" />
+                    <label for="star-5" title="5 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+
+                    <input id="star-4" type="radio" name="rating" value="4" />
+                    <label for="star-4" title="4 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+
+                    <input id="star-3" type="radio" name="rating" value="3" />
+                    <label for="star-3" title="3 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+
+                    <input id="star-2" type="radio" name="rating" value="2" />
+                    <label for="star-2" title="2 stars">
+                      <i class="active fa fa-star"></i>
+                    </label>
+
+                    <input id="star-1" type="radio" name="rating" value="1" checked />
+                    <label for="star-1" title="1 star">
+                      <i class="active fa fa-star"></i>
+                    </label>
+
+                </div>
                 <br>
                 <button>Enviar</button>
             </form>
 
         </div>
-    </div>
 
     </div>
     </div>
