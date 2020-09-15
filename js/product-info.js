@@ -3,6 +3,8 @@
 //elementos HTML presentes.
 var carInfoArray
 var commentsArray
+var productsArray
+
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
@@ -17,6 +19,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (resultObj.status === "ok") {
             commentsArray = resultObj.data
             showComments();
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data
         }
     });
 });
@@ -42,6 +50,8 @@ function showCarInfo(id) {
     document.getElementById('descriptionInfo').innerHTML = carInfoArray.description
     document.getElementById('carCarrousel').innerHTML = carruselContent
     document.getElementById('indicators').innerHTML = indicators
+
+    showRelatedProducts(carInfoArray.relatedProducts)
 }
 
 function showComments() {
@@ -96,3 +106,33 @@ function showComments() {
     ],
     "relatedProducts": [1, 3]
 } */
+
+function showRelatedProducts( relatedProducts) {
+
+    let htmlContentToAppend = "";
+    for (let i = 0; i < relatedProducts.length; i++) {
+        let product = productsArray[relatedProducts[i]];
+
+            htmlContentToAppend += `
+                <a  class="list-group-item list-group-item-action" onClick="setProductId(` + i + `)" style="margin-left: auto; margin-right: auto; position: relative;">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                        </div>
+                        
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">` + product.name + `</h4>
+                                <small class="text-muted">` + product.soldCount + ` vendidos</small>
+                            </div>
+                            <p class="mb-1">` + product.description + `</p>
+                            <p class="mb-1">` + product.cost + " " + product.currency + `</p>
+                        </div>
+                    </div>
+                </a>
+            `
+
+
+        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+    }
+}
