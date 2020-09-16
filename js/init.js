@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
         </a>
       
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="#">Mi perfil</a>
-        <a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesion</a>
+        <a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesión</a>
         </div>
       </div>`
     }
