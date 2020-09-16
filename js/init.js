@@ -50,6 +50,25 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var page = path.split("/").pop();
     if (user != "" && page != "index.html") {
         let bar = document.getElementById("bar");
-        bar.innerHTML += '<a class="py-2 d-none d-md-inline-block" href="#">' + user.email + '</a>';
+
+
+
+
+        bar.innerHTML += `<div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ` + user.email + `
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="#">Mi perfil</a>
+        <a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesion</a>
+        </div>
+      </div>`
     }
 });
+
+function logOut(){
+    let user = window.localStorage.removeItem("user");
+    window.location = "index.html"
+}
