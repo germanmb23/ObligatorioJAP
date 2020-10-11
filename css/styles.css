@@ -315,3 +315,10 @@ p#selPuntuacion {
     margin-top: 5px;
     margin-bottom: 0px;
 }
+
+#total {
+    justify-items: end;
+    display: grid;
+    margin-right: 500px;
+    font-weight: 700
+}

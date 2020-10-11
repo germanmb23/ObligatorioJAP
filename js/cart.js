@@ -1,20 +1,21 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+var itemsArray = []
+
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
-            showItems(resultObj.data);
+            itemsArray = resultObj.data
+            showItems();
         }
     });
 });
 
-function showItems(itemsArray) {
+function showItems() {
     let htmlContentToAppend = "";
 
     for (let i = 0; i < itemsArray.articles.length; i++) {
-        let item = itemsArray[i];
-
         htmlContentToAppend += `
                 <a  class="list-group-item list-group-item-action" onClick="" style="margin-left: auto; margin-right: auto; position: relative;">
                     <div class="row">
@@ -34,14 +35,17 @@ function showItems(itemsArray) {
                                 Cantidad
                             </div>   
                             <div class="col align-self-center">
-                            <input type="number" id="cant${i}" class="mb-1 align-self-center" style="width:100px" value=${itemsArray.articles[i].count} min="0" onChange="calcSubTotal(${itemsArray.articles[i].unitCost}, ${i})">
+                            <input type="number" id="cant${i}" class="mb-1 align-self-center" style="width:100px" value=${itemsArray.articles[i].count} min="0" onChange="calcSubTotal(${itemsArray.articles[i].unitCost}, ${i}, ${itemsArray.articles[i].currency})">
                             </div>
                             <div class="col align-self-center" style="justify-content: right; display: grid;">
                             Subtotal:
                             </div> 
-                            <div class="col align-self-center subtotal" id="subtotal${i}" style="justify-content: left; display: grid;">
+                            <div class="col-1 align-self-center subtotal" id="subtotal${i}" style="justify-content: left; display: grid;">
                             ${itemsArray.articles[i].unitCost * itemsArray.articles[i].count}
-                            </div> 
+                            </div>
+                            <div class="col align-self-center subtotalCurrency" id="subtotal${i}" style="justify-content: left; display: grid;">
+                                ${itemsArray.articles[i].currency}
+                            </div>
                         </div>
                             </div>
                         
@@ -54,17 +58,22 @@ function showItems(itemsArray) {
     calcTotal()
 }
 
-function calcSubTotal(cost, id, currency) {
-    let subtotal = document.getElementById('cant' + id).value
-    document.getElementById('subtotal' + id).innerHTML = subtotal * cost
+function calcSubTotal(cost, id) {
+    let subtotal = document.getElementById('cant' + id).value * cost
+    document.getElementById('subtotal' + id).innerHTML = subtotal
     calcTotal()
 }
 
 function calcTotal() {
     let elements = document.getElementsByClassName("subtotal")
+    let subtotalCurrency = document.getElementsByClassName("subtotalCurrency")
     let total = 0
     for (let index = 0; index < elements.length; index++) {
-        total += Number(elements[index].innerHTML);
+        if (itemsArray.articles[index].currency == "USD")
+            total += Number(elements[index].innerHTML) * 40;
+        else {
+            total += Number(elements[index].innerHTML)
+        }
     }
-    document.getElementById('total').innerHTML = "Total: " + total + ' $'
+    document.getElementById('total').innerHTML = "Total: " + total + ' UYU'
 }
