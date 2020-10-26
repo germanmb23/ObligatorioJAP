@@ -45,21 +45,221 @@
     <div class="container p-5" id="itemsList">
 
     </div>
-    <div class="container p-5" id="total">
+    <div class="row" id="total">
     </div>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+
+    <div class="row" id="envio">
+        Costo envio: [Seleccionar tipo de envio]
+    </div>
+
+
+    <div class="container p-15" id="total">
+        <div class="">
+            <!--Section: Block Content-->
+            <section>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLoginRegister">
+Metodo de pago        </button>
+
+                <!-- Modal -->
+                <div class="modal fade show" id="modalLoginRegister" tabindex="-1" role="dialog" aria-modal="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+
+                                <!-- Pills -->
+                                <ul class="nav md-pills nav-justified pills-primary">
+                                    <li class="nav-item">
+                                        <a class="nav-link border border-primary border-rounded active show" data-toggle="tab" href="#modalLoginRegister-login" role="tab" aria-selected="true">Tarjeta de crédito</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link border border-primary border-rounded" data-toggle="tab" href="#modalLoginRegister-register" role="tab" aria-selected="false">Cuenta bancaria</a>
+                                    </li>
+                                </ul>
+                                <!-- Pills -->
+
+                                <!-- Content -->
+                                <div class="tab-content py-0">
+
+                                    <!-- First panel -->
+                                    <div class="tab-pane fade in show active" id="modalLoginRegister-login" role="tabpanel">
+
+                                        <!-- Login form -->
+                                        <div class=" card wish-list pb-1 ">
+                                            <div class=" card-body ">
+
+                                                <h5 class=" mb-2 ">Detalles de pago</h5>
+                                                <div class=" md-form md-outline my-0 ">
+                                                    <label for=" companyName ">Numero de tarjeta</label>
+                                                    <input type=" text " id=" companyName " class=" form-control mb-0 ">
+                                                </div>
+                                                <!-- Grid row -->
+                                                <div class=" row ">
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+
+                                                        <!-- First name -->
+                                                        <div class=" md-form md-outline mb-0 mb-lg-4 ">
+                                                            <label for=" firstName ">Fecha de vencimiento</label>
+
+                                                            <input type=" text " id=" firstName " class=" form-control mb-0 mb-lg-2 ">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+
+                                                        <!-- Last name -->
+                                                        <div class=" md-form md-outline ">
+                                                            <label for=" lastName ">Codigo de seguridad</label>
+
+                                                            <input type=" text " id=" lastName " class=" form-control ">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                </div>
+                                                <div class=" row ">
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+
+                                                        <!-- First name -->
+                                                        <div class=" md-form md-outline mb-0 mb-lg-4 ">
+                                                            <label for=" firstName ">Nombre</label>
+
+                                                            <input type=" text " id=" firstName " class=" form-control mb-0 mb-lg-2 ">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+
+                                                        <!-- Last name -->
+                                                        <div class=" md-form md-outline ">
+                                                            <label for=" lastName ">Apellido</label>
+
+                                                            <input type=" tesxt " id=" lastName " class=" form-control ">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                </div>
+                                                <div class=" row ">
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+
+                                                        <!-- First name -->
+                                                        <div class=" md-form md-outline mb-0 mb-lg-4 ">
+                                                            <label for=" firstName ">Direccion</label>
+
+                                                            <input type=" text " id=" firstName " class=" form-control mb-0 mb-lg-2 ">
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                    <!-- Grid column -->
+                                                    <div class=" col-lg-6 ">
+                                                        <div class=" d-flex flex-wrap ">
+                                                            <div class=" select-outline position-relative w-100 ">
+                                                                <label>Country</label>
+
+                                                                <select class=" mdb-select md-form md-outline ">
+                                                                    <option value="0" selected>----Elegir pais----</option>
+                                                                    <option>Uruguay</option>
+                                                                    <option>Colombia</option>
+                                                                    <option>Argentina</option>
+                                                                    <option>Peru</option>
+                                                                    <option>Venezuela</option>
+                                                                    <option>Chile</option>
+                                                                    <option>Ecuador</option>
+                                                                    <option>Bolivia</option>
+                                                                    <option>Paraguay</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- Grid column -->
+
+                                                </div>
+                                                <!-- Grid row -->
+
+
+                                            </div>
+                                        </div>
+                                        <!-- Login form -->
+
+                                    </div>
+                                    <!-- First panel -->
+
+                                    <!-- Second panel -->
+                                    <div class="tab-pane fade" id="modalLoginRegister-register" role="tabpanel">
+
+                                        <!-- Card -->
+                                        <div class=" card wish-list pb-1 ">
+                                            <div class=" card-body ">
+
+                                                <h5 class=" mb-2 ">Detalles de pago</h5>
+                                                <div class=" md-form md-outline my-0 ">
+                                                    <label for=" companyName ">Numero de tarjeta</label>
+                                                    <input type=" text " id=" companyName " class=" form-control mb-0 ">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Second panel -->
+
+                                    </div>
+                                    <!-- Content -->
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </section>
+            <!--Section: Block Content-->
+            </div>
         </div>
-    </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/dropzone.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/cart.js"></script>
+
+        <div class="container">
+            <div class="row">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary" id="premium">Premium (2-5 días)</button>
+                    <button type="button" class="btn btn-secondary" id="express">Express (5-8 días)</button>
+                    <button type="button" class="btn btn-secondary" id="standard">Standard (12 a 15 días)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/dropzone.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/cart.js"></script>
 </body>
 
 </html>

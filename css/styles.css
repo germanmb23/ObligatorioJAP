@@ -322,3 +322,10 @@ p#selPuntuacion {
     margin-right: 500px;
     font-weight: 700
 }
+
+#envio {
+    justify-items: end;
+    display: grid;
+    margin-right: 500px;
+    font-weight: 700
+}

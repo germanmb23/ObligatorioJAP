@@ -1,6 +1,7 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+var totalV = 0
 var itemsArray = []
 
 document.addEventListener("DOMContentLoaded", function(e) {
@@ -10,6 +11,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
             showItems();
         }
     });
+
+    document.getElementById("premium").addEventListener("click", function(e) {
+        document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.15) + "UYU"
+    })
+    document.getElementById("express").addEventListener("click", function(e) {
+        document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.07) + "UYU"
+    })
+    document.getElementById("standard").addEventListener("click", function(e) {
+        document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.05) + "UYU"
+    })
 });
 
 function showItems() {
@@ -75,5 +86,6 @@ function calcTotal() {
             total += Number(elements[index].innerHTML)
         }
     }
-    document.getElementById('total').innerHTML = "Total: " + total + ' UYU'
+    totalV = total
+    document.getElementById('total').innerHTML = "Productos total: " + total + ' UYU'
 }
