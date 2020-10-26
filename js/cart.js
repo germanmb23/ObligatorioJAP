@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 var totalV = 0
 var itemsArray = []
+var envio = 0
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART_INFO_URL).then(function(resultObj) {
@@ -14,12 +15,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     document.getElementById("premium").addEventListener("click", function(e) {
         document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.15) + "UYU"
+        envio = 1
+
     })
     document.getElementById("express").addEventListener("click", function(e) {
         document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.07) + "UYU"
+        envio = 2
     })
     document.getElementById("standard").addEventListener("click", function(e) {
         document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.05) + "UYU"
+        envio = 3
     })
 });
 
@@ -88,6 +93,24 @@ function calcTotal() {
     }
     totalV = total
     document.getElementById('total').innerHTML = "Productos total: " + total + ' UYU'
-    document.getElementById("envio").innerHTML = "Costo envio: [Seleccionar tipo de envio]"
+    switch (envio) {
+        case 1:
+            document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.15) + "UYU"
+
+            break;
+        case 2:
+            document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.07) + "UYU"
+
+            break;
+
+        case 3:
+            document.getElementById("envio").innerHTML = "Costo envio: " + Math.ceil(totalV * 0.05) + "UYU"
+
+            break;
+
+
+        default:
+            break;
+    }
 
 }
