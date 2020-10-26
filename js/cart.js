@@ -88,4 +88,6 @@ function calcTotal() {
     }
     totalV = total
     document.getElementById('total').innerHTML = "Productos total: " + total + ' UYU'
+    document.getElementById("envio").innerHTML = "Costo envio: [Seleccionar tipo de envio]"
+
 }
