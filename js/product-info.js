@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data
-                showRelatedProducts(carInfoArray.relatedProducts)
+            showRelatedProducts(carInfoArray.relatedProducts)
 
         }
     });
@@ -108,14 +108,13 @@ function showComments() {
     "relatedProducts": [1, 3]
 } */
 
-function showRelatedProducts( relatedProducts) {
+function showRelatedProducts(relatedProducts) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < relatedProducts.length; i++) {
-        console.log(productsArray)
         let product = productsArray[relatedProducts[i]];
 
-            htmlContentToAppend += `
+        htmlContentToAppend += `
                 <a  class="list-group-item list-group-item-action" onClick="setProductId(` + i + `)" style="margin-left: auto; margin-right: auto; position: relative;">
                     <div class="row">
                         <div class="col-2">

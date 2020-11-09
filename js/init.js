@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
       
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
-          <a class="dropdown-item" href="#">Mi perfil</a>
-        <a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesión</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+        <a class="dropdown-item" href="index.html" onclick="logOut()">Cerrar sesión</a>
         </div>
       </div>`
     }
@@ -72,5 +72,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 function logOut() {
     let user = window.localStorage.removeItem("user");
-    window.location = "index.html"
 }

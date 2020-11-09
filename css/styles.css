@@ -2,7 +2,7 @@
 .card-body,
 .container,
 .site-header {
-    font-family: 'Raleway', serif !important;
+    font-family: "Raleway", serif !important;
 }
 
 .jumbotron .display-4 {
@@ -13,8 +13,8 @@
     height: 50vh;
     padding: 5em inherit;
     margin-bottom: 0;
-    background-color: #53C0FB;
-    background: url('../img/cover_back.png');
+    background-color: #53c0fb;
+    background: url("../img/cover_back.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,12 +54,12 @@ footer {
 }
 
 footer p {
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
 }
 
 .site-header a {
     color: white;
-    transition: ease-in-out color .15s;
+    transition: ease-in-out color 0.15s;
 }
 
 .light-text {
@@ -71,7 +71,7 @@ footer p {
 }
 
 .dropzone {
-    border: 2px dashed #0087F7;
+    border: 2px dashed #0087f7;
     border-radius: 5px;
     background: white;
 }
@@ -173,12 +173,10 @@ a.custom-card:hover {
 
 .card-white .h5 {
     font-size: 14px;
-    //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .card-white .time {
     font-size: 12px;
-    //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .post .post-heading {
@@ -291,11 +289,11 @@ a.custom-card:hover {
 .star-rating {
     direction: rtl;
     display: inline-block;
-    padding: 0px
+    padding: 0px;
 }
 
-.star-rating input[type=radio] {
-    display: none
+.star-rating input[type="radio"] {
+    display: none;
 }
 
 .star-rating label {
@@ -307,8 +305,8 @@ a.custom-card:hover {
 
 .star-rating label:hover,
 .star-rating label:hover~label,
-.star-rating input[type=radio]:checked~label {
-    color: #ffbf00
+.star-rating input[type="radio"]:checked~label {
+    color: #ffbf00;
 }
 
 p#selPuntuacion {
@@ -320,12 +318,16 @@ p#selPuntuacion {
     justify-items: end;
     display: grid;
     margin-right: 500px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 #envio {
     justify-items: end;
     display: grid;
     margin-right: 500px;
-    font-weight: 700
+    font-weight: 700;
+}
+
+.form-control {
+    color: black;
 }

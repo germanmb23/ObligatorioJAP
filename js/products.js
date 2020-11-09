@@ -67,26 +67,24 @@ function showProductsList() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) && ((search == undefined) || (search != undefined && product.name.toLowerCase().indexOf(search) != -1))) {
 
             htmlContentToAppend += `
-                <a  class="list-group-item list-group-item-action" onClick="setProductId(` + i + `)" style="margin-left: auto; margin-right: auto; position: relative;">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                        </div>
-                        
-                        <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">` + product.name + `</h4>
-                                <small class="text-muted">` + product.soldCount + ` vendidos</small>
-                            </div>
-                            <p class="mb-1">` + product.description + `</p>
-                            <p class="mb-1">` + product.cost + " " + product.currency + `</p>
-                        </div>
+
+            <div class="col-md-4" onClick="setProductId(` + i + `)">
+            <div class="card mb-4 shadow-sm">
+                <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                <div class="card-body">
+                    <h4>` + product.name + `</h4>
+                    <p class="card-text">` + product.description + `</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    ` + product.cost + " " + product.currency + `
+                        <small class="text-muted">` + product.soldCount + ` vendidos</small>
                     </div>
-                </a>
+                </div>
+            </div>
+        </div>
             `
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("grid_items").innerHTML = htmlContentToAppend;
     }
 }
 
